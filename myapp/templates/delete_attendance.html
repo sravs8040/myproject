@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Attendance</title>
+</head>
+<body>
+    <h1>Delete Attendance Record</h1>
+    <p>Are you sure you want to delete the attendance record for {{ attendance.student.name }} in {{ attendance.subject.name }} on {{ attendance.date }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'view_attendance' %}">Cancel</a>
+</body>
+</html>

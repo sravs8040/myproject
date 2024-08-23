@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subject Attendance: {{ subject.name }}</title>
+</head>
+<body>
+    <h1>Attendance for {{ subject.name }}</h1>
+    <ul>
+        {% for record in attendance_records %}
+            <li>{{ record.student.name }}: {{ record.status }} on {{ record.date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

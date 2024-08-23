@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Attendance</title>
+</head>
+<body>
+    <h1>Manage Attendance</h1>
+    <ul>
+        {% for record in attendance_records %}
+            <li>{{ record.student.name }} - {{ record.subject.name }}: {{ record.status }} on {{ record.date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

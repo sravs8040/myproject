@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Parents</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Manage Parents</h1>
+
+    {% if parents %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Student</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for parent in parents %}
+                    <tr>
+                        <td>{{ parent.name }}</td>
+                        <td>{{ parent.email }}</td>
+                        <td>{{ parent.phone }}</td>
+                        <td>{{ parent.student.name }}</td>
+                        <td>
+                            <a href="{% url 'update_parent' parent.pk %}">Edit</a> |
+                            <a href="{% url 'delete_parent' parent.pk %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No parents found.</p>
+    {% endif %}
+
+    <p><a href="{% url 'create_parent' %}">Add New Parent</a></p>
+
+</body>
+</html>
